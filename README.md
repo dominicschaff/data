@@ -26,10 +26,10 @@ Place this code in your `.bashrc` file to use the above from your terminal:
 ```bash
 http_code()
 {
+  data="$(curl -s 'https://raw.githubusercontent.com/dominicschaff/data/master/http_codes.json')"
   if [[ $# -eq 0 ]]; then
-    echo -e "$(curl -s 'https://raw.githubusercontent.com/dominicschaff/data/master/http_codes.json' | jq -r '.[] | .codes[] | "\\e[36m\(.code)\\e[0m : \(.name)"')"
+    echo -e "$(echo "$data" | jq -r '.[] | .codes[] | "\\e[36m\(.code)\\e[0m : \(.name)"')"
   else
-    data="$(curl -s 'https://raw.githubusercontent.com/dominicschaff/data/master/http_codes.json')"
     for f in "$@"; do
       echo -e "$(echo "$data" | jq -r ".[] | .codes[] | select(.code == \"$f\") | \"\\\\e[36m\(.code) : \(.name)\\\\e[0m\n\n\(.description)\"")"
     done
