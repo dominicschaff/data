@@ -1,0 +1,89 @@
+[
+  {
+    "type": "1xx Informational Response",
+    "codes": [
+      {"code": "100","name": "Continue","description": "The server has received the request headers and the client should proceed to send the request body (in the case of a request for which a body needs to be sent; for example, a POST request). Sending a large request body to a server after a request has been rejected for inappropriate headers would be inefficient. To have a server check the request's headers, a client must send Expect: 100-continue as a header in its initial request and receive a 100 Continue status code in response before sending the body. If the client receives an error code such as 403 (Forbidden) or 405 (Method Not Allowed) then it shouldn't send the request's body. The response 417 Expectation Failed indicates that the request should be repeated without the Expect header as it indicates that the server doesn't support expectations (this is the case, for example, of HTTP/1.0 servers).","notes":[]},
+      {"code":"101","name":"Switching Protocols","description":"The requester has asked the server to switch protocols and the server has agreed to do so.","notes":[]},
+      {"code":"102","name":"Processin", "description":"A WebDAV request may contain many sub-requests involving file operations, requiring a long time to complete the request. This code indicates that the server has received and is processing the request, but no response is available yet.[7] This prevents the client from timing out and assuming the request was lost.","notes":["Used for WebDav", "RFC 2518"]},
+      {"code":"103","name":"Early Hints","description":"Used to return some response headers before final HTTP message.","notes":["RFC 8297"]}
+    ]
+  },{
+    "type": "2xx Success",
+    "codes": [
+      {"code":"200","name":"OK","description":"","notes":[]},
+      {"code":"201","name":"Created","description":"","notes":[]},
+      {"code":"202","name":"Accepted","description":"","notes":[]},
+      {"code":"203","name":"Non-Authoritative Information","description":"","notes":["Since HTTP/1.1"]},
+      {"code":"204","name":"No Content","description":"","notes":[]},
+      {"code":"205","name":"Reset Content","description":"","notes":[]},
+      {"code":"206","name":"Partial Content","description":"","notes":["RFC 7233"]},
+      {"code":"207","name":"Multi-Status","description":"","notes":["WebDAV", "RFC 4918"]},
+      {"code":"208","name":"Already Reported","description":"","notes":["WebDAV", "RFC 4918"]},
+      {"code":"226","name":"IM Used","description":"","notes":["RFC 3229"]}
+    ]
+  },{
+    "type": "3xx Redirection",
+    "codes": [
+      {"code":"300","name":"Multiple Choices","description":"","notes":[]},
+      {"code":"301","name":"Moved Permanently","description":"","notes":[]},
+      {"code":"302","name":"Found","description":"","notes":["Previously 'Moved temporarily'"]},
+      {"code":"303","name":"See Other","description":"","notes":["since HTTP/1.1"]},
+      {"code":"304","name":"Not Modified","description":"","notes":["RFC 7232"]},
+      {"code":"305","name":"Use Proxy","description":"","notes":["since HTTP/1.1"]},
+      {"code":"306","name":"Switch Proxy","description":"","notes":[]},
+      {"code":"307","name":"Temporary Redirect","description":"","notes":["since HTTP/1.1"]},
+      {"code":"308","name":"Permanent Redirect","description":"","notes":[]}
+    ]
+  },{
+    "type": "4xx Client Errors",
+    "codes": [
+      {"code":"400","name":"Bad Request","description":"","notes":[]},
+      {"code":"401","name":"Unauthorized","description":"","notes":["RFC 7235"]},
+      {"code":"402","name":"Payment Required","description":"","notes":[]},
+      {"code":"403","name":"Forbidden","description":"","notes":[]},
+      {"code":"404","name":"Not Found","description":"","notes":[]},
+      {"code":"405","name":"Method Not Allowed","description":"","notes":[]},
+      {"code":"406","name":"Not Acceptable","description":"","notes":[]},
+      {"code":"407","name":"Proxy Authentication Required","description":"","notes":["RFC 7235"]},
+      {"code":"408","name":"Request Timeout","description":"","notes":[]},
+      {"code":"409","name":"Conflict","description":"","notes":[]},
+      {"code":"410","name":"Gone","description":"","notes":[]},
+      {"code":"411","name":"Length Required","description":"","notes":[]},
+      {"code":"412","name":"Precondition Failed","description":"","notes":["RFC 7232"]},
+      {"code":"413","name":"Payload Too Large","description":"","notes":["RFC 7231"]},
+      {"code":"414","name":"URI Too Long","description":"","notes":["RFC 7231"]},
+      {"code":"415","name":"Unsupported Media Type","description":"","notes":[]},
+      {"code":"416","name":"Range Not Satisfiable","description":"","notes":["RFC 7233"]},
+      {"code":"417","name":"Expectation Failed","description":"","notes":[]},
+      {"code":"418","name":"I'm a teapot","description":"","notes":["RFC 2324", "RFC 7168"]},
+      {"code":"421","name":"Misdirected Request","description":"","notes":["RFC 7540"]},
+      {"code":"422","name":"Unprocessable Entity","description":"","notes":["WebDAV", "RFC 5918"]},
+      {"code":"423","name":"Locked","description":"","notes":["WebDAV", "RFC 4918"]},
+      {"code":"424","name":"Failed Dependency","description":"","notes":["WebDAV", "RFC 4918"]},
+      {"code":"426","name":"Upgrade Required","description":"","notes":[]},
+      {"code":"428","name":"Precondition Required","description":"","notes":["RFC 6585"]},
+      {"code":"429","name":"Too Many Requests","description":"","notes":["RFC 6585"]},
+      {"code":"431","name":"Request Header Fields Too Large","description":"","notes":["RFC 6585"]},
+      {"code":"451","name":"Unavailable For Legal Reasons","description":"","notes":["RFC 7725"]}
+    ]
+  },{
+    "type": "5xx Server Errors",
+    "codes": [
+      {"code":"500","name":"Internal Server Error","description":"","notes":[]},
+      {"code":"501","name":"Not Implemented","description":"","notes":[]},
+      {"code":"502","name":"Bad Gateway","description":"","notes":[]},
+      {"code":"503","name":"Service Unavailable","description":"","notes":[]},
+      {"code":"504","name":"Gateway Timeout","description":"","notes":[]},
+      {"code":"505","name":"HTTP Version not Supported","description":"","notes":[]},
+      {"code":"506","name":"Variant Also Negotiates","description":"","notes":["RFC 2295"]},
+      {"code":"507","name":"Insufficient Storage","description":"","notes":["WebDAV", "RFC 4918"]},
+      {"code":"508","name":"Loop Detected","description":"","notes":["WebDAV", "RFC 5842"]},
+      {"code":"510","name":"Not Extended","description":"","notes":["RFC 2774"]},
+      {"code":"511","name":"Network Authentication Required","description":"","notes":["RFC 6585"]}
+    ]
+  },{
+    "type": "Unofficial codes",
+    "codes": [
+    ]
+  }
+]
